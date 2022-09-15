@@ -24,6 +24,7 @@ class ForecastController extends ChangeNotifier {
 
       forecast = result;
     } catch (e) {
+      print(e);
       update(hasError: true);
     }
   }
