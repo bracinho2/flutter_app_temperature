@@ -11,7 +11,7 @@ class ForecastRepositoryImpl implements IForecastRepository {
   ForecastRepositoryImpl(this._httpClient);
   @override
   Future<ActualForecast> call() async {
-    final response = await _httpClient.fetch();
+    final response = await _httpClient.get();
     final forecast = ActualForecast.fromMap(response);
 
     return forecast;

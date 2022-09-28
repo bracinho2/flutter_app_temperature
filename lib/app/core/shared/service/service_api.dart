@@ -10,14 +10,14 @@ import 'package:http/http.dart' as http;
 
 //DIP > Dependecy Inversion Principle
 abstract class HttpClient {
-  Future<Map<String, dynamic>> fetch();
+  Future<Map<String, dynamic>> get();
 }
 
 //OO - POLIMORFISMO
 class HttpClientFlutterandoImpl implements HttpClient {
   Dio dio = Dio();
   @override
-  Future<Map<String, dynamic>> fetch() async {
+  Future<Map<String, dynamic>> get() async {
     final response = await dio.get(URLs.API_FLUTTERANDO);
 
     final value = Map<String, dynamic>.from(response.data);
@@ -31,13 +31,13 @@ class HttpForecastImplementation implements HttpClient {
 
   var url = Uri(path: URLs.API_FORECAST);
   @override
-  Future<Map<String, dynamic>> fetch() async {
+  Future<Map<String, dynamic>> get() async {
     final response = await httpClient.get(url);
 
-    print(response.body);
+    //print(response.body);
 
     final value = jsonDecode(response.body);
-    print(value);
+    //print(value);
 
     return {};
   }
@@ -46,10 +46,10 @@ class HttpForecastImplementation implements HttpClient {
 class DioForecastImplementation implements HttpClient {
   Dio dio = Dio();
   @override
-  Future<Map<String, dynamic>> fetch() async {
+  Future<Map<String, dynamic>> get() async {
     final response = await dio.get(URLs.API_FORECAST);
 
-    print(response.data);
+    //print(response.data);
 
     //final value = Map<String, dynamic>.from(response.data);
     final value = response.data;

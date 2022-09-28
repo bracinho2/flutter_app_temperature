@@ -11,7 +11,7 @@ class UsuarioFlutterandoRepositoryImpl
 
   @override
   Future<UsuarioFlutterando> call() async {
-    final response = await cliente.fetch();
+    final response = await cliente.get();
 
     final usuario = UsuarioFlutterando.fromMap(response);
 
