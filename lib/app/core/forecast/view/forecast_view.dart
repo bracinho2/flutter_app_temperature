@@ -13,7 +13,7 @@ class ForecastView extends StatefulWidget {
 
 class _ForecastViewState extends State<ForecastView> {
   final controller =
-      ForecastController(ForecastRepositoryImpl(HttpForecastImplementation()));
+      ForecastController(ForecastRepositoryImpl(DioForecastImplementation()));
 
   @override
   void initState() {
